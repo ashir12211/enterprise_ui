@@ -1,0 +1,883 @@
+<div class="rui-wrapper">
+
+    <style>
+        .rui-wrapper {
+            --rui-primary: #714bdb;
+            --rui-primary-dark: #5735b5;
+            --rui-text: #172033;
+            --rui-muted: #64748b;
+            --rui-border: #e8eaf2;
+            --rui-surface: #ffffff;
+            color: var(--rui-text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            overflow: hidden;
+        }
+
+        .rui-wrapper * {
+            box-sizing: border-box;
+        }
+
+        .rui-wrapper .rui-hero {
+            position: relative;
+            padding: 64px 24px 46px;
+            text-align: center;
+            border: 1px solid #ece8fa;
+            border-radius: 28px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(113, 75, 219, .12), transparent 55%),
+                linear-gradient(180deg, #fbfaff 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .rui-wrapper .rui-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            max-width: 100%;
+            padding: 9px 16px;
+            border: 1px solid #e4dcff;
+            border-radius: 999px;
+            background: #f5f1ff;
+            color: #6240bf;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.15px;
+            line-height: 1.6;
+            text-transform: uppercase;
+        }
+
+        .rui-wrapper .rui-eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            flex: 0 0 8px;
+            border-radius: 50%;
+            background: #714bdb;
+            box-shadow: 0 0 0 4px rgba(113, 75, 219, .12);
+        }
+
+        .rui-wrapper .rui-hero-title {
+            max-width: 850px;
+            margin: 24px auto 16px;
+            color: #17152b;
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 850;
+            letter-spacing: -2.8px;
+            line-height: 1.08;
+        }
+
+        .rui-wrapper .rui-gradient-text {
+            color: #714bdb;
+            background: linear-gradient(110deg, #714bdb 10%, #a855f7 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rui-wrapper .rui-hero-description {
+            max-width: 710px;
+            margin: 0 auto;
+            color: #667085;
+            font-size: 17px;
+            line-height: 1.85;
+        }
+
+        .rui-wrapper .rui-hero-description strong {
+            color: #344054;
+        }
+
+        .rui-wrapper .rui-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px 24px;
+            margin-top: 28px;
+        }
+
+        .rui-wrapper .rui-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #475467;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .rui-wrapper .rui-check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background: #ede9fe;
+            color: #714bdb;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .rui-wrapper .rui-showcase {
+            position: relative;
+            margin: 38px auto 0;
+            padding: 0 20px;
+        }
+
+        .rui-wrapper .rui-screen-frame {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid #dfe3ed;
+            border-radius: 18px;
+            background: #101827;
+            box-shadow:
+                0 35px 75px -35px rgba(30, 25, 60, .34),
+                0 12px 30px rgba(30, 25, 60, .09);
+        }
+
+        .rui-wrapper .rui-screen-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 53px;
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, .09);
+            background: #202a3b;
+        }
+
+        .rui-wrapper .rui-browser-dots {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-shrink: 0;
+        }
+
+        .rui-wrapper .rui-dot {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .rui-wrapper .rui-address {
+            display: inline-block;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            color: #cbd5e1;
+            font-family: monospace;
+            font-size: 11px;
+        }
+
+        .rui-wrapper .rui-screen-status {
+            padding: 6px 10px;
+            border: 1px solid rgba(167, 139, 250, .3);
+            border-radius: 7px;
+            background: rgba(124, 92, 219, .15);
+            color: #ddd6fe;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .2px;
+        }
+
+        .rui-wrapper .rui-image-wrap {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #0d1220;
+            line-height: 0;
+            text-align: center;
+        }
+
+        .rui-wrapper .rui-preview-image {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+        }
+
+        .rui-wrapper .rui-caption {
+            margin: 18px auto 0;
+            color: #7c8498;
+            font-size: 12px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .rui-wrapper .rui-caption strong {
+            color: #5d43b6;
+        }
+
+        .rui-wrapper .rui-section {
+            padding: 74px 20px;
+        }
+
+        .rui-wrapper .rui-section-heading {
+            max-width: 760px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .rui-wrapper .rui-section-label {
+            display: inline-block;
+            margin-bottom: 13px;
+            color: #714bdb;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .rui-wrapper .rui-section-title {
+            margin: 0 0 16px;
+            color: #19172c;
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 800;
+            letter-spacing: -1.4px;
+            line-height: 1.2;
+        }
+
+        .rui-wrapper .rui-section-description {
+            max-width: 670px;
+            margin: 0 auto;
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .rui-wrapper .rui-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .rui-wrapper .rui-feature-card {
+            height: 100%;
+            padding: 27px 25px;
+            border: 1px solid #e9e7f2;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(36, 30, 70, .025);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .rui-wrapper .rui-feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #d8cdfa;
+            box-shadow: 0 18px 35px rgba(57, 39, 105, .09);
+        }
+
+        .rui-wrapper .rui-feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid #e7defe;
+            border-radius: 14px;
+            background: #f5f1ff;
+            color: #714bdb;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .rui-wrapper .rui-feature-title {
+            margin: 0 0 10px;
+            color: #242139;
+            font-size: 17px;
+            font-weight: 750;
+            line-height: 1.4;
+        }
+
+        .rui-wrapper .rui-feature-description {
+            margin: 0;
+            color: #697386;
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        .rui-wrapper .rui-story {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+            align-items: center;
+            gap: 48px;
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 42px;
+            border: 1px solid #e8e5f3;
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at 100% 0%, rgba(113, 75, 219, .09), transparent 50%),
+                #fbfaff;
+        }
+
+        .rui-wrapper .rui-story-title {
+            margin: 0 0 20px;
+            color: #1d1933;
+            font-size: clamp(27px, 3vw, 37px);
+            font-weight: 800;
+            letter-spacing: -1.2px;
+            line-height: 1.25;
+        }
+
+        .rui-wrapper .rui-story-copy {
+            margin: 0;
+            color: #667085;
+            font-size: 14px;
+            line-height: 1.95;
+        }
+
+        .rui-wrapper .rui-story-copy strong {
+            color: #353047;
+        }
+
+        .rui-wrapper .rui-benefit-list {
+            display: grid;
+            gap: 15px;
+            margin: 25px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .rui-wrapper .rui-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #475467;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .rui-wrapper .rui-benefit-item .rui-check {
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .rui-wrapper .rui-benefit-panel {
+            padding: 27px;
+            border: 1px solid #e9e3fb;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .9);
+        }
+
+        .rui-wrapper .rui-panel-title {
+            margin: 0 0 20px;
+            color: #29233e;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .rui-wrapper .rui-benefit-row {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eeebf6;
+        }
+
+        .rui-wrapper .rui-benefit-row:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .rui-wrapper .rui-benefit-row:first-of-type {
+            padding-top: 0;
+        }
+
+        .rui-wrapper .rui-benefit-row-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 39px;
+            height: 39px;
+            flex: 0 0 39px;
+            border-radius: 11px;
+            background: #f1ecff;
+            color: #714bdb;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .rui-wrapper .rui-benefit-row-title {
+            margin: 0 0 3px;
+            color: #333047;
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .rui-wrapper .rui-benefit-row-description {
+            margin: 0;
+            color: #81869a;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .rui-wrapper .rui-bottom-cta {
+            max-width: 1060px;
+            margin: 0 auto 50px;
+            padding: 46px 24px;
+            border-radius: 23px;
+            background: linear-gradient(120deg, #35215f 0%, #6540b6 60%, #8056db 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .rui-wrapper .rui-bottom-cta h2 {
+            margin: 0 0 12px;
+            color: #ffffff;
+            font-size: clamp(25px, 3vw, 36px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.25;
+        }
+
+        .rui-wrapper .rui-bottom-cta p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #e8e0ff;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .rui-wrapper .rui-footer-note {
+            padding: 0 20px 25px;
+            color: #8b8fa0;
+            font-size: 11px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+            .rui-wrapper .rui-hero {
+                padding: 43px 17px 34px;
+                border-radius: 20px;
+            }
+
+            .rui-wrapper .rui-hero-title {
+                letter-spacing: -1.5px;
+            }
+
+            .rui-wrapper .rui-hero-description {
+                font-size: 15px;
+            }
+
+            .rui-wrapper .rui-highlights {
+                gap: 12px;
+            }
+
+            .rui-wrapper .rui-showcase {
+                margin-top: 27px;
+                padding: 0 5px;
+            }
+
+            .rui-wrapper .rui-screen-frame {
+                border-radius: 12px;
+            }
+
+            .rui-wrapper .rui-screen-bar {
+                min-height: 43px;
+                padding: 10px 12px;
+            }
+
+            .rui-wrapper .rui-screen-status {
+                font-size: 9px;
+            }
+
+            .rui-wrapper .rui-section {
+                padding: 53px 8px;
+            }
+
+            .rui-wrapper .rui-feature-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .rui-wrapper .rui-feature-card {
+                padding: 23px;
+            }
+
+            .rui-wrapper .rui-section-heading {
+                margin-bottom: 30px;
+            }
+
+            .rui-wrapper .rui-story {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 24px 19px;
+                border-radius: 19px;
+            }
+
+            .rui-wrapper .rui-benefit-panel {
+                padding: 21px;
+            }
+
+            .rui-wrapper .rui-bottom-cta {
+                margin-bottom: 30px;
+                padding: 35px 20px;
+                border-radius: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rui-wrapper .rui-feature-card {
+                transition: none;
+            }
+        }
+    </style>
+
+    <!-- ==========================================
+         1. HERO SECTION
+    =========================================== -->
+    <section class="rui-hero">
+
+        <div class="rui-eyebrow">
+            <span class="rui-eyebrow-dot"></span>
+            Odoo 20.0 Community Edition
+            <span>•</span>
+            Backend UI Enhancement
+        </div>
+
+        <h1 class="rui-hero-title">
+            Your Odoo Backend.<br>
+            <span class="rui-gradient-text">
+                An Enterprise Experience.</span>
+        </h1>
+
+        <p class="rui-hero-description">
+            Give your <strong>Odoo Community</strong> backend a fresh, modern makeover.
+            Experience a refined app launcher, a sleek dark interface, and responsive
+            navigation inspired by the Odoo Enterprise look and feel.
+        </p>
+
+        <div class="rui-highlights">
+            <div class="rui-highlight">
+                <span class="rui-check">✓</span>
+                App Launcher
+            </div>
+
+            <div class="rui-highlight">
+                <span class="rui-check">✓</span>
+                Dark Mode Experience
+            </div>
+
+            <div class="rui-highlight">
+                <span class="rui-check">✓</span>
+                Responsive Interface
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+         2. PRODUCT SCREENSHOT SHOWCASE
+    =========================================== -->
+    <section class="rui-showcase">
+
+        <div class="rui-section-heading">
+            <span class="rui-section-label">A Closer Look</span>
+
+            <h2 class="rui-section-title">
+                A Better Way to Work in Odoo
+            </h2>
+
+            <p class="rui-section-description">
+                Explore an enterprise-grade backend experience designed to make your everyday work more powerful,
+                intuitive, and visually refined.
+            </p>
+        </div>
+
+        <div class="rui-screen-frame">
+
+            <div class="rui-screen-bar">
+
+                <div class="rui-browser-dots">
+                    <span class="rui-dot" style="background:#ef4444;"></span>
+                    <span class="rui-dot" style="background:#f59e0b;"></span>
+                    <span class="rui-dot" style="background:#10b981;"></span>
+                </div>
+
+                <!-- <span class="rui-address">
+                    https://your-odoo-domain.com/odoo
+                </span> -->
+
+                <span class="rui-screen-status">
+                    Community UI Preview
+                </span>
+
+            </div>
+
+            <div class="rui-image-wrap">
+                <img src="img.png" alt="Responsive UI app launcher preview for Odoo Community" class="rui-preview-image"
+                    loading="lazy">
+            </div>
+
+        </div>
+
+        <p class="rui-caption">
+            Odoo Community interface preview powered by
+            <strong>Responsive UI</strong>.
+        </p>
+
+    </section>
+
+    <!-- ==========================================
+         3. FEATURE CARDS
+    =========================================== -->
+    <!-- <section class="rui-section">
+
+        <div class="rui-section-heading">
+            <span class="rui-section-label">Designed for Everyday Work</span>
+
+            <h2 class="rui-section-title">
+                Everything You Need.<br>
+                Nothing You Don't.
+            </h2>
+
+            <p class="rui-section-description">
+                A thoughtfully enhanced interface that brings a more polished
+                appearance to your Community backend while keeping your workflow familiar.
+            </p>
+        </div>
+
+        <div class="rui-feature-grid">
+
+            <article class="rui-feature-card">
+                <div class="rui-feature-icon">▦</div>
+
+                <h3 class="rui-feature-title">
+                    Enterprise-Inspired App Launcher
+                </h3>
+
+                <p class="rui-feature-description">
+                    Access your installed applications through a clean, visually
+                    organized home menu. Find the tools you need with a more
+                    polished launcher experience.
+                </p>
+            </article>
+
+            <article class="rui-feature-card">
+                <div class="rui-feature-icon">◐</div>
+
+                <h3 class="rui-feature-title">
+                    Modern Dark Mode
+                </h3>
+
+                <p class="rui-feature-description">
+                    Enjoy a darker visual style with coordinated surfaces,
+                    refined contrast, and a modern appearance across supported
+                    backend interface elements.
+                </p>
+            </article>
+
+            <article class="rui-feature-card">
+                <div class="rui-feature-icon">⌘</div>
+
+                <h3 class="rui-feature-title">
+                    Responsive Navigation
+                </h3>
+
+                <p class="rui-feature-description">
+                    Work with an interface designed to adapt to different screen
+                    sizes, making everyday navigation more comfortable on supported
+                    desktop and mobile layouts.
+                </p>
+            </article>
+
+            <article class="rui-feature-card">
+                <div class="rui-feature-icon">✧</div>
+
+                <h3 class="rui-feature-title">
+                    Clean, Modern Styling
+                </h3>
+
+                <p class="rui-feature-description">
+                    Bring a more consistent visual language to your backend with
+                    refined spacing, balanced typography, and a contemporary
+                    interface design.
+                </p>
+            </article>
+
+            <article class="rui-feature-card">
+                <div class="rui-feature-icon">◎</div>
+
+                <h3 class="rui-feature-title">
+                    Familiar Odoo Workflow
+                </h3>
+
+                <p class="rui-feature-description">
+                    Keep using your familiar Odoo applications and workflows
+                    while enjoying the visual improvements provided by the
+                    installed module.
+                </p>
+            </article>
+
+            <article class="rui-feature-card">
+                <div class="rui-feature-icon">↗</div>
+
+                <h3 class="rui-feature-title">
+                    Community Edition Focused
+                </h3>
+
+                <p class="rui-feature-description">
+                    Give your Community installation an upgraded visual identity
+                    without requiring an Enterprise subscription solely for
+                    the appearance you want.
+                </p>
+            </article>
+
+        </div>
+
+    </section> -->
+
+    <!-- ==========================================
+         4. PRODUCT DESCRIPTION
+    =========================================== -->
+    <!-- <section class="rui-section" style="padding-top: 0;">
+
+        <div class="rui-story">
+
+            <div>
+
+                <span class="rui-section-label">
+                    Meet Responsive UI
+                </span>
+
+                <h2 class="rui-story-title">
+                    Make Your Community Backend Feel Premium.
+                </h2>
+
+                <p class="rui-story-copy">
+                    Tired of the standard Community layout?
+                    <strong>Responsive UI</strong> is designed to enhance
+                    your Odoo backend with an Enterprise-inspired home menu,
+                    modern visual styling, dark mode, and improved navigation
+                    on supported screen sizes.
+                    <br><br>
+                    Whether you manage sales, inventory, projects, contacts,
+                    or other business applications, enjoy a refreshed interface
+                    that brings a more cohesive look to your daily operations.
+                </p>
+
+                <ul class="rui-benefit-list">
+                    <li class="rui-benefit-item">
+                        <span class="rui-check">✓</span>
+                        <span>A cleaner and more organized app launcher experience.</span>
+                    </li>
+
+                    <li class="rui-benefit-item">
+                        <span class="rui-check">✓</span>
+                        <span>A modern interface designed around visual clarity.</span>
+                    </li>
+
+                    <li class="rui-benefit-item">
+                        <span class="rui-check">✓</span>
+                        <span>A Community-focused alternative for backend appearance customization.</span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="rui-benefit-panel">
+
+                <h3 class="rui-panel-title">
+                    The Experience at a Glance
+                </h3>
+
+                <div class="rui-benefit-row">
+                    <div class="rui-benefit-row-icon">▦</div>
+
+                    <div>
+                        <h4 class="rui-benefit-row-title">
+                            App Launcher
+                        </h4>
+
+                        <p class="rui-benefit-row-description">
+                            A visually organized starting point for your applications.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rui-benefit-row">
+                    <div class="rui-benefit-row-icon">◐</div>
+
+                    <div>
+                        <h4 class="rui-benefit-row-title">
+                            Dark Interface
+                        </h4>
+
+                        <p class="rui-benefit-row-description">
+                            A contemporary dark appearance on supported interface elements.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rui-benefit-row">
+                    <div class="rui-benefit-row-icon">⌘</div>
+
+                    <div>
+                        <h4 class="rui-benefit-row-title">
+                            Adaptive Layout
+                        </h4>
+
+                        <p class="rui-benefit-row-description">
+                            A more comfortable layout across supported screen sizes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rui-benefit-row">
+                    <div class="rui-benefit-row-icon">✧</div>
+
+                    <div>
+                        <h4 class="rui-benefit-row-title">
+                            Refined Appearance
+                        </h4>
+
+                        <p class="rui-benefit-row-description">
+                            Consistent styling with a clean, professional visual identity.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section> -->
+
+    <!-- ==========================================
+         5. CLOSING SECTION
+    =========================================== -->
+
+    <section class="rui-bottom-cta">
+
+        <h2>
+            A Fresh Look for Your Odoo Community.
+        </h2>
+
+        <p>
+            Responsive UI — Backend interface enhancement for Odoo Community Edition..Elevate your backend with an
+            enterprise experience.
+        </p>
+
+    </section>
+
+    <!-- ==========================================
+         6. FOOTER NOTE
+    =========================================== -->
+    <!-- <div class="rui-footer-note">
+        Responsive UI — Backend interface enhancement for Odoo Community Edition.
+        <br>
+    </div> -->
+
+</div>
+```
