@@ -15,10 +15,9 @@
     'price': 2.00,
     'currency': 'USD',
 
-'images': [
+    'images': [
         'static/description/enterprise_ui_cover.png',
         'static/description/enterprise_screenshot.png',
-
     ],
 
     'data': [
@@ -82,5 +81,4 @@
         ],
     },
     'license': 'LGPL-3',
-    "images":["static/description/img.png"],
 }
