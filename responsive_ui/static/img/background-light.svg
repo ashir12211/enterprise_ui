@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1920 1080"
+     width="1920"
+     height="1080">
+
+  <defs>
+    <!-- Warm ivory background -->
+    <linearGradient id="base"
+                    x1="0" y1="0"
+                    x2="1920" y2="1080"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FAF9F6"/>
+      <stop offset="52%" stop-color="#F6F6F1"/>
+      <stop offset="100%" stop-color="#EEF3ED"/>
+    </linearGradient>
+
+    <!-- Main soft sage gradient -->
+    <linearGradient id="sage"
+                    x1="0" y1="0"
+                    x2="1000" y2="1080"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#DCE8DB"/>
+      <stop offset="48%" stop-color="#C8D9CB"/>
+      <stop offset="100%" stop-color="#AFC8B4"/>
+    </linearGradient>
+
+    <!-- Secondary green gradient -->
+    <linearGradient id="green"
+                    x1="600" y1="1080"
+                    x2="1700" y2="0"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5EDE5"/>
+      <stop offset="55%" stop-color="#C7D9CB"/>
+      <stop offset="100%" stop-color="#E8EFE6"/>
+    </linearGradient>
+
+    <!-- Elegant champagne accent -->
+    <linearGradient id="champagne"
+                    x1="1060" y1="1080"
+                    x2="1920" y2="220"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E9DFC9"/>
+      <stop offset="100%" stop-color="#F7F3EA"/>
+    </linearGradient>
+
+    <!-- Soft atmospheric highlight -->
+    <radialGradient id="glow"
+                    cx="0" cy="0" r="1"
+                    gradientTransform="translate(430 180) rotate(40) scale(1000 700)"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"
+            stop-opacity="0.90"/>
+      <stop offset="100%" stop-color="#FFFFFF"
+            stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Subtle overall white overlay -->
+    <linearGradient id="fade"
+                    x1="0" y1="0"
+                    x2="1920" y2="1080"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"
+            stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FFFFFF"
+            stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Subtle lower-right green glow -->
+    <radialGradient id="greenGlow"
+                    cx="0" cy="0" r="1"
+                    gradientTransform="translate(1550 850) rotate(90) scale(450 650)"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D5E4D5"
+            stop-opacity="0.48"/>
+      <stop offset="100%" stop-color="#D5E4D5"
+            stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="1920" height="1080"
+        fill="url(#base)"/>
+
+  <!-- Soft light from the upper-left -->
+  <rect width="1920" height="1080"
+        fill="url(#glow)"/>
+
+  <!-- Main classic diagonal shape -->
+  <path d="M0 0
+           H1040
+           L0 1040
+           Z"
+        fill="url(#sage)"
+        opacity="0.46"/>
+
+  <!-- Wide translucent diagonal ribbon -->
+  <path d="M250 1080
+           L1330 0
+           H1660
+           L580 1080
+           Z"
+        fill="url(#green)"
+        opacity="0.42"/>
+
+  <!-- Fine diagonal accent -->
+  <path d="M820 1080
+           L1920 0
+           V180
+           L1000 1080
+           Z"
+        fill="#FFFFFF"
+        opacity="0.24"/>
+
+  <!-- Champagne accent on the right -->
+  <path d="M1060 1080
+           L1920 220
+           V390
+           L1230 1080
+           Z"
+        fill="url(#champagne)"
+        opacity="0.48"/>
+
+  <!-- Lower-right decorative geometry -->
+  <path d="M1450 1080
+           L1920 610
+           V1080
+           Z"
+        fill="#D5E3D4"
+        opacity="0.36"/>
+
+  <!-- Soft green atmospheric glow -->
+  <rect width="1920" height="1080"
+        fill="url(#greenGlow)"/>
+
+  <!-- Final subtle highlight -->
+  <rect width="1920" height="1080"
+        fill="url(#fade)"/>
+
+</svg>

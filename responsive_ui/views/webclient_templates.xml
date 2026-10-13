@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="webclient_login" inherit_id="web.login_layout">
+        <xpath expr="//t[@t-call='web.frontend_layout']" position="attributes">
+            <attribute name="body_classname">o_home_menu_background</attribute>
+            <attribute name="body_classname.f" remove="1"/>
+        </xpath>
+        <xpath expr="//t[@t-call='web.frontend_layout']" position="before">
+            <t t-set="login_card_classes" t-value="'rounded-0 shadow-sm bg-white'"/>
+        </xpath>
+    </template>
+
+    <template id="webclient_bootstrap" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//meta[@name='theme-color']" position="replace">
+            <meta name="theme-color" t-att-content="'#714B67' if request.cookies.get('color_scheme') == 'light' else '#242733'"/>
+        </xpath>
+        <xpath expr="//t[@t-call-assets='web.assets_web_dark']/.." position="replace">
+            <t t-if="request.cookies.get('color_scheme') != 'light'">
+                <t t-call-assets="web.assets_web_dark" media="screen"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>
